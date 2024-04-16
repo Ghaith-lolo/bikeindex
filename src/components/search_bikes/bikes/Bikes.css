@@ -1,0 +1,12 @@
+.card-bike {
+    max-width: 1000px;
+    height: fit-content;
+    background: whitesmoke;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
