@@ -3,6 +3,15 @@ import axiosInstance from '../../../../axiosInstance';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
+interface Bike {
+  serial: string;
+  manufacturer_name: string;
+  frame_colors: string[];
+  date_stolen: number;
+  stolen_location: string;
+  stolen_coordinates?: [number, number];
+}
+
 const Container = styled.div`
   max-width: 800px;
   margin: 100px auto;
@@ -43,13 +52,13 @@ const Loader = styled.div`
 
 function BikeDetails() {
   const { id } = useParams();
-  const [bike, setBike] = useState({});
+  const [bike, setBike] = useState<Bike | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get(`/api/v3/bikes/${id}`);
+        const response = await axiosInstance.get<{ bike: Bike }>(`/api/v3/bikes/${id}`);
         setBike(response.data.bike);
         setIsLoading(false);
       } catch (err) {
@@ -66,7 +75,7 @@ function BikeDetails() {
       <Title>Bike Details</Title>
       {isLoading ? (
         <Loader>Loading...</Loader>
-      ) : (
+      ) : bike ? (
         <BikeDetailsContainer>
           <Bike><b>Serial:</b> {bike.serial}</Bike>
           <Bike><b>Manufacturer:</b> {bike.manufacturer_name}</Bike>
@@ -80,6 +89,8 @@ function BikeDetails() {
             </>
           )}
         </BikeDetailsContainer>
+      ) : (
+        <Loader>No bike data available</Loader>
       )}
     </Container>
   );

@@ -14,7 +14,11 @@ function SearchBikes() {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [location, setLocation] = useState<string>(`${localStorage.getItem('location') ? localStorage.getItem('location') : 'IP'}`);
     const [stolenness, setStolenness] = useState<string>(`${localStorage.getItem('stolenness') ? localStorage.getItem('stolenness') : 'all'}`);
-    const [current, setCurrent] = useState(localStorage.getItem('perPage') ? localStorage.getItem('perPage') : 1);
+    const [current, setCurrent] = useState<number>(
+        localStorage.getItem('perPage')
+            ? Number(localStorage.getItem('perPage'))
+            : 1
+    );
     const [totalTheftCases, settotalTheftCases] = useState(0);
     const [titleToBeSearch, setTitleToBeSearch] = useState('');
     const [title, setTitle] = useState('');
@@ -80,7 +84,7 @@ function SearchBikes() {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    marginTop:'100px'
+                    marginTop: '100px'
                 }}>
                     <span style={{ width: '65%' }}>
                         <p><b>total number of bike theft cases :</b>{totalTheftCases}</p>

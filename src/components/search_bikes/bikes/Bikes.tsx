@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import  { memo } from 'react';
 import './Bikes.css'
 import { Flex } from 'antd';
 import { useNavigate } from 'react-router-dom';
