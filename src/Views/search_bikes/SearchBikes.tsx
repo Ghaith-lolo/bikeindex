@@ -1,4 +1,4 @@
-import Bikes from "./bikes/Bikes";
+import Bikes from "../../components/bikes/Bikes";
 import { useState, useEffect, ChangeEvent } from 'react';
 import axiosInstance from '../../axiosInstance';
 import { Button, Input } from 'antd';

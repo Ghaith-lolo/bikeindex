@@ -2,9 +2,9 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Header from './layout/header/Header';
 import Footer from './layout/footer/Footer';
-import SearchBikes from './components/search_bikes/SearchBikes';
-import Home from './components/home/Home';
-import BikeDetails from './components/search_bikes/bikes/bike_details/BikeDetails';
+import SearchBikes from './Views/search_bikes/SearchBikes';
+import Home from './Views/home/Home';
+import BikeDetails from './Views/bike_details/BikeDetails';
 
 
 function App() {
