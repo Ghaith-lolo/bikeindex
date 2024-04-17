@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axiosInstance from '../../../../axiosInstance';
+import axiosInstance from '../../axiosInstance';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
